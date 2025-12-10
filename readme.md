@@ -20,7 +20,9 @@ The simulation runs over multiple rounds, during which entities are matched agai
 This function simulates a match (a "fight") between two entities and updates their scores:
 
 1.  **Win Probability Calculation:** The probability ($\text{prob}$) of the attacker (entity 1) winning is calculated primarily based on the difference between their **true scores**.
-    $$\text{prob} = \text{clip}\left(\frac{\text{true\_score}_1 - \text{true\_score}_2}{200} + 0.6, 0, 1\right)$$
+```math 
+text{prob} = \text{clip}\left(\frac{\text{true\_score}_1 - \text{true\_score}_2}{200} + 0.6, 0, 1\right)
+```
     The result is clipped between 0 and 1, ensuring a valid probability. The formula gives the attacker a slight advantage (the $\mathbf{+0.6}$ offset) even if the true scores are equal.
 
 2.  **Score Update (K-factor equivalent):**
